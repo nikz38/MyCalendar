@@ -1,0 +1,13 @@
+<h2>Calendar page</h2>
+
+{{#each model as |event|}}
+  <article class="listing">
+    <h3>{{event.title}}</h3>
+    <div class="detail owner">
+      <span>Title:</span> {{event.title}}
+    </div>
+    <div class="detail type">
+      <span>Description:</span> {{event.description}}
+    </div>
+  </article>
+{{/each}}
