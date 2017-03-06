@@ -1,5 +1,11 @@
 <div>place for calendar</div>
 <br>
+
+<button {{action 'calendarLeft'}}>previous month</button>
+<div>{{ format-month selectedDate }}</div>
+<button {{action 'calendarRight'}}>next month</button>
+
+
 {{#each weekDays as |day|}}
   <div>{{day}}</div>
 {{/each}}

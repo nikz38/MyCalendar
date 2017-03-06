@@ -5,10 +5,14 @@ export default Ember.Component.extend({
   selectedDate: moment(),
 
   didInsertElement() {
+    this.createCalendarMonth();
+  },
 
+  createCalendarMonth() {
     let days = [];
     let year = this.selectedDate.format('YYYY');
     let month = this.selectedDate.format('MM');
+    console.log(month);
     let daysInSelectedMonth = this.selectedDate.daysInMonth();
 
     // Add selected month days
@@ -20,7 +24,7 @@ export default Ember.Component.extend({
     }
 
     // Add previous month days
-    while (days[0].date.format('d') != 0) {
+    while (days[0].date.day() != 0) {
       let firstDayDate = days[0].date.clone();
       let day = {};
       day.date = firstDayDate.subtract(1, 'day');
@@ -29,7 +33,7 @@ export default Ember.Component.extend({
     }
 
     // Add next month days
-    while (days[days.length - 1].date.format('d') != 6) {
+    while (days[days.length - 1].date.day() != 6) {
       let lastDayDate = days[days.length - 1].date.clone();
       let day = {};
       day.date = lastDayDate.add(1, 'day');
@@ -37,9 +41,23 @@ export default Ember.Component.extend({
       days.push(day);
     }
 
-    console.log(days);
-
     this.set('days', days);
+
+  },
+
+  actions: {
+    calendarLeft() {
+      this.createCalendarMonth();
+    },
+
+    calendarRight() {
+      let bbb = this.selectedDate.subtract(1, 'month');
+      this.set('selectedDate', bbb);
+
+      //console.log(this.selectedDate);
+
+      this.createCalendarMonth();
+    }
   }
 
 });
