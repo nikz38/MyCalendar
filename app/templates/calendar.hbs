@@ -1,5 +1,14 @@
-{{main-calendar}}
+<h2 class="heading">calendar overview</h2>
 
-{{#each model as |eventUnit|}}
-  {{calendar-event event=eventUnit}}
-{{/each}}
+{{main-calendar events=model.events activeEvents=model.activeEvents}}
+
+<button {{action 'sessionChanged'}}>refresh</button>
+
+{{#if model.activeEvents}}
+<h3 class="heading">calendar entries for selected date:</h3>
+{{/if}}
+<div class="events-preview-wrapper">
+  {{#each model.activeEvents as |eventUnit|}}
+    {{calendar-event event=eventUnit events=model.events activeEvents=model.activeEvents}}
+  {{/each}}
+</div>

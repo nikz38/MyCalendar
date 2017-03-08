@@ -1,9 +1,6 @@
-<article class="listing">
-  <h3>{{event.title}}</h3>
-  <div class="detail owner">
-    <span>Title:</span> {{event.title}}
-  </div>
-  <div class="detail type">
-    <span>Description:</span> {{event.description}}
-  </div>
-</article>
+<div class="event-wrapper">
+    <div class="event-time">Time: {{event.date}}</div>
+    <div class="detail owner">Title: {{event.title}}</div>
+    <div class="detail type">Description: {{event.description}}</div>
+  <div {{action 'deleteEvent' event}}>delete</div>
+</div>

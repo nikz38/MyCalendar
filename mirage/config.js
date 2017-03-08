@@ -7,22 +7,30 @@ export default function () {
         type: 'events',
         id: 'event1',
         attributes: {
+          time: 'Tue Mar 07 2017 01:00:00 GMT+0100',
           title: 'Event title 1',
           description: 'Event description 1',
           timestamp: ''
         }
       }, {
+        type: 'events',
+        id: 'event2',
+        attributes: {
+          time: 'Wed Mar 03 2017 05:00:00 GMT+0100',
+          title: 'Event title 2',
+          description: 'Event description 2'
+        }
+      }, {
           type: 'events',
-          id: 'event2',
+          id: 'event3',
           attributes: {
-            title: 'Event title 2',
-            description: 'Event description 2',
-            timestamp: ''
-          }
+            time: 'Wed Mar 01 2017 05:00:00 GMT+0100',
+            title: 'Event title 3',
+            description: 'Event description 3'
+          },
       }]
     };
   });
-
 }
 
 // These comments are here to help you get started. Feel free to delete them.

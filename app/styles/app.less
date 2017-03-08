@@ -1,0 +1,300 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Gotham-Book';
+  color: #fff;
+  background: #2e1f4a;
+}
+
+h1, h3 {
+  margin: 18px 0;
+}
+
+
+header {
+  background: #372754;
+}
+
+.heading {
+  margin: 50px auto 0;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.subheading {
+
+}
+
+nav {
+  a {
+    display: inline-block;
+    margin: 0 15px;
+    line-height: 50px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+  }
+}
+
+//main-calendar component style
+
+.calendar-wrapper {
+  width: 700px;
+  margin: 40px auto 0;
+  padding: 35px 20px;
+  background: -moz-linear-gradient(-45deg, rgba(255,255,190,0.19) 0%, rgba(56,35,87,1) 100%);
+  background: -webkit-linear-gradient(-45deg, rgba(255,255,190,0.19) 0%,rgba(56,35,87,1) 100%);
+  background: linear-gradient(135deg, rgba(255,255,190,0.19) 0%,rgba(56,35,87,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#30ffffbe', endColorstr='#382357',GradientType=1 );
+
+  .calendar-navigation {
+    font-size: 25px;
+    margin-bottom: 40px;
+    .flex();
+    .flex-direction(row);
+    .flex-justify-content(center);
+    .flex-center();
+  }
+
+  .nav-arrow-left {
+    width: 0;
+    height: 0;
+    margin-right: 20px;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid #f5e048;
+    cursor: pointer;
+  }
+
+  .nav-arrow-right {
+    width: 0;
+    height: 0;
+    margin-left: 20px;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid #f5e048;
+    cursor: pointer;
+  }
+
+  .calendar-header {
+    margin-bottom: 15px;
+    .flex();
+    .flex-direction(row);
+  }
+
+  .week-day,
+  .day-wrapper {
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+  }
+
+  .week-day {
+    color: #f5e048;
+    font-family: 'Gotham-Bold';
+  }
+
+  .calendar-body {
+    .flex();
+    .flex-wrap(wrap);
+    .flex-direction(row);
+  }
+
+  .day-wrapper {
+    margin-bottom: 15px;
+    line-height: 25px;
+  }
+
+  .day {
+    &.active {
+    width: 25px;
+    height: 25px;
+    margin: 0 auto;
+    line-height: 25px;
+    background: #fff;
+    border-radius: 50%;
+    color: #2e1f4a;
+    cursor: pointer;
+    }
+    &.inactive {
+      opacity: 0.3;
+    }
+  }
+}
+
+.events-preview-wrapper {
+  width: 740px;
+  margin: 25px auto 0;
+  color: #b6adc7;
+
+  .event-wrapper {
+    &>div {
+      margin-bottom: 5px;
+    }
+
+    .event-time {
+      font-size: 18px;
+      font-family: 'Gotham-Bold';
+    }
+
+    .event-title {
+
+    }
+
+    .event-description {
+
+    }
+  }
+
+
+
+}
+
+//calendar-event component style
+.event-wrapper {
+  border-top: 1px solid #4e3e69;
+  padding: 18px 50px;
+  background: -moz-linear-gradient(top,  rgba(78,62,105,0.35) 0%, rgba(78,62,105,0.35) 1%, rgba(51,33,80,1) 100%);
+  background: -webkit-linear-gradient(top,  rgba(78,62,105,0.35) 0%,rgba(78,62,105,0.35) 1%,rgba(51,33,80,1) 100%);
+  background: linear-gradient(to bottom,  rgba(78,62,105,0.35) 0%,rgba(78,62,105,0.35) 1%,rgba(51,33,80,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#594e3e69', endColorstr='#332150',GradientType=0 );
+
+}
+
+
+@font-face {
+  font-family: 'Gotham-Bold';
+  src: url('/assets/fonts/Gotham-Bold.eot?#iefix') format('embedded-opentype'),
+  url('/assets/fonts/Gotham-Bold.ttf') format('truetype'),
+  url('/assets/fonts/Gotham-Bold.svg#OpenSans') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham-Book';
+  src: url('/assets/fonts/Gotham-Book.eot?#iefix') format('embedded-opentype'),
+  url('/assets/fonts/Gotham-Book.woff') format('woff'),
+  url('/assets/fonts/Gotham-Book.ttf') format('truetype'),
+  url('/assets/fonts/Gotham-Book.svg#OpenSans') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham-Light';
+  src: url('/assets/fonts/Gotham-Light.eot?#iefix') format('embedded-opentype'),
+  url('/assets/fonts/Gotham-Light.woff') format('woff'),
+  url('/assets/fonts/Gotham-Light.ttf') format('truetype'),
+  url('/assets/fonts/Gotham-Light.svg#OpenSans') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.flex() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.flex-grow(@columns: initial) {
+  -webkit-flex: @columns;
+  -ms-flex: @columns;
+  flex: @columns;
+}
+
+.flex-shrink(@shrink: 1) {
+  -webkit-flex-shrink: @shrink;
+  -ms-flex-shrink: @shrink;
+  flex-shrink: @shrink;
+}
+
+.align-self(@align: auto) {
+  -webkit-align-self: @align;
+  -ms-align-self: @align;
+  align-self: @align;
+}
+
+.flex-center() {
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.flex-wrap(@property) {
+  -webkit-flex-flow: @property;
+  -ms-flex-flow: @property;
+  flex-flow: @property;
+}
+
+.align-items(@align) {
+  -webkit-align-items: @align;
+  -ms-align-items: @align;
+  align-items: @align;
+}
+
+.flex-flow(@flow, @wrap) {
+  -webkit-flex-flow: @flow @wrap;
+  -ms-flex-flow: @flow @wrap;
+  flex-flow: @flow @wrap;
+}
+
+.flex-grow(@grow: 0) {
+  -webkit-flex-grow: @grow;
+  -ms-flex-grow: @grow;
+  flex-grow: @grow;
+}
+
+.flex-justify-content(@position) {
+  -webkit-justify-content: @position;
+  justify-content: @position;
+}
+
+.flex-direction(@direction) {
+  -webkit-flex-direction: @direction;
+  flex-direction: @direction;
+}
+
+.align-content(@property) {
+  -webkit-align-content: @property;
+  align-content: @property;
+}
+
+.box(@property) {
+  -moz-box-sizing: @property;
+  -webkit-box-sizing: @property;
+  box-sizing: @property;
+}
+
+.transition(@property, @time) {
+  -moz-transition: @property @time ease-out;
+  -o-transition: @property @time ease-out;
+  -webkit-transition: @property @time ease-out;
+  transition: @property @time ease-out;
+}
+
+.transition-timeout(@property, @time, @timeout) {
+  -moz-transition: @property @time @timeout ease-out;
+  -o-transition: @property @time @timeout ease-out;
+  -webkit-transition: @property @time @timeout ease-out;
+  transition: @property @time @timeout ease-out;
+}
+
+.transition-none() {
+  -moz-transition: none;
+  -o-transition: none;
+  -webkit-transition: none;
+  transition: none;
+}
+
+.transform(@property) {
+  -moz-transform: @property;
+  -ms-transform: @property;
+  -o-transform: @property;
+  -webkit-transform: @property;
+  transform: @property;
+}

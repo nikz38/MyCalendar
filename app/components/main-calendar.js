@@ -3,16 +3,22 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   weekDays: moment.weekdaysShort(),
   selectedDate: moment(),
+  counter: 0,
+  events: [],
 
-  didInsertElement() {
+  init() {
+    this._super();
+    this.events = this.get('events');
+    this.activeEvents = this.get('activeEvents');
+    console.log(this.activeEvents)
     this.createCalendarMonth();
+    this.loadEvents();
   },
 
   createCalendarMonth() {
     let days = [];
     let year = this.selectedDate.format('YYYY');
     let month = this.selectedDate.format('MM');
-    console.log(month);
     let daysInSelectedMonth = this.selectedDate.daysInMonth();
 
     // Add selected month days
@@ -42,21 +48,51 @@ export default Ember.Component.extend({
     }
 
     this.set('days', days);
+    //  console.log(days);
+  },
 
+  loadEvents() {
+    this.events.forEach(function (event) {
+      event.date = moment(event.date);
+    });
+    this.addEventsToCalendar();
+  },
+
+  addEventsToCalendar() {
+    for (let i = 0; i < this.days.length; i++) {
+      let day = this.days[i];
+      // console.log(day);
+      for (let j = 0; j < this.events.length; j++) {
+        let event = this.events[j];
+        if (day.date.format('YYYY-MM-DD') == moment(event.date).format('YYYY-MM-DD')) {
+          if (!day.event) day.event = [];
+          day.event.push(event);
+        }
+      }
+    }
   },
 
   actions: {
     calendarLeft() {
+      this.counter -= 1;
+      this.set('selectedDate', moment().add(this.counter, 'month'));
       this.createCalendarMonth();
+      this.addEventsToCalendar();
+
     },
 
     calendarRight() {
-      let bbb = this.selectedDate.subtract(1, 'month');
-      this.set('selectedDate', bbb);
-
-      //console.log(this.selectedDate);
-
+      this.counter += 1;
+      this.set('selectedDate', moment().add(this.counter, 'month'));
       this.createCalendarMonth();
+      this.addEventsToCalendar();
+    },
+
+    setActiveEvents(day) {
+      if (day.selectedMonth) {
+        let setEvents = day.event;
+        this.set('activeEvents', setEvents);
+      }
     }
   }
 

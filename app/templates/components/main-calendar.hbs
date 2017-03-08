@@ -1,15 +1,24 @@
-<div>place for calendar</div>
-<br>
-
-<button {{action 'calendarLeft'}}>previous month</button>
-<div>{{ format-month selectedDate }}</div>
-<button {{action 'calendarRight'}}>next month</button>
-
-
-{{#each weekDays as |day|}}
-  <div>{{day}}</div>
-{{/each}}
-
-{{#each days as |day|}}
-  <div>{{format-date day.date}}</div>
-{{/each}}
+<div class="calendar-wrapper">
+  <div class="calendar-navigation">
+    <div class="nav-arrow-left" {{action 'calendarLeft'}}></div>
+    <div>{{ format-month selectedDate }}</div>
+    <div class="nav-arrow-right" {{action 'calendarRight'}}></div>
+  </div>
+  <div class="calendar-header">
+    {{#each weekDays as |day|}}
+      <div class="week-day">{{day}}</div>
+    {{/each}}
+  </div>
+  <div class="calendar-body">
+    {{#each days as |day|}}
+      <div class="day-wrapper">
+        <div class="day
+          {{if day.selectedMonth '' 'inactive'}}
+          {{if day.event.length 'active' ''}}"
+          {{action 'setActiveEvents' day}}>
+          {{format-date day.date}}
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
