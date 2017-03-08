@@ -90,8 +90,8 @@ export default Ember.Component.extend({
 
     setActiveEvents(day) {
       if (day.selectedMonth) {
-        let setEvents = day.event;
-        this.set('activeEvents', setEvents);
+        this.set('activeEvents', day.event);
+        this.sendAction('updateView');
       }
     }
   }

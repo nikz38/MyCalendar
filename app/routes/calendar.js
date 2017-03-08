@@ -37,8 +37,8 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    sessionChanged: function() {
-      console.log(this.model());
+    complete: function() {
+      console.log('dadsa');
     }
   }
 

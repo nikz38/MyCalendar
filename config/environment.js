@@ -13,6 +13,7 @@ module.exports = function(environment) {
       },
         EXTEND_PROTOTYPES: {
           Date: false,
+          Array: true
         }
     },
 

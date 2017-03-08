@@ -9,6 +9,6 @@
 {{/if}}
 <div class="events-preview-wrapper">
   {{#each model.activeEvents as |eventUnit|}}
-    {{calendar-event event=eventUnit events=model.events activeEvents=model.activeEvents}}
+    {{calendar-event deleteEvent='complete' event=eventUnit events=model.events activeEvents=model.activeEvents}}
   {{/each}}
 </div>
