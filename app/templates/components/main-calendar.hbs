@@ -14,6 +14,7 @@
       <div class="day-wrapper">
         <div class="day
           {{if day.selectedMonth '' 'inactive'}}
+          {{if day.selectedDay 'active-day' ''}}
           {{if day.event.length 'active' ''}}"
           {{action 'setActiveEvents' day}}>
           {{format-day day.date}}

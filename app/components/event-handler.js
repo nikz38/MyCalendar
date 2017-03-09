@@ -15,6 +15,7 @@ export default Ember.Component.extend({
           event.date = activeEvent.date;
 
           localStorage.events = JSON.stringify(events);
+          this.sendAction('backToCalendar');
         }
       }
     },
@@ -33,6 +34,7 @@ export default Ember.Component.extend({
       events.push(this.event);
 
       localStorage.events = JSON.stringify(events);
+      this.sendAction('backToCalendar');
     }
   }
 

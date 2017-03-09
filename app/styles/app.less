@@ -9,8 +9,6 @@ body {
   background: #2e1f4a;
 }
 
-
-
 h1, h2, h3 {
   margin: 50px auto 0;
   text-align: center;
@@ -32,25 +30,24 @@ header {
       text-transform: uppercase;
       text-decoration: none;
       color: #fff;
+      &:hover {
+        text-decoration: none;
+        color: #f5e048;
+      }
       &.active {
         color: #f5e048;
+        text-decoration: none;
       }
     }
   }
 }
 
-
-
-.subheading {
-
-}
-
 //main-calendar component style
-
 .calendar-wrapper {
   width: 700px;
   margin: 40px auto 0;
   padding: 35px 20px;
+  box-sizing: content-box;
   background: -moz-linear-gradient(-45deg, rgba(255, 255, 190, 0.19) 0%, rgba(56, 35, 87, 1) 100%);
   background: -webkit-linear-gradient(-45deg, rgba(255, 255, 190, 0.19) 0%, rgba(56, 35, 87, 1) 100%);
   background: linear-gradient(135deg, rgba(255, 255, 190, 0.19) 0%, rgba(56, 35, 87, 1) 100%);
@@ -128,6 +125,9 @@ header {
     &.inactive {
       opacity: 0.3;
     }
+    &.active-day {
+      background: #f5e048;
+    }
   }
 }
 
@@ -144,14 +144,6 @@ header {
     .event-time {
       font-size: 18px;
       font-family: 'Gotham-Bold';
-    }
-
-    .event-title {
-
-    }
-
-    .event-description {
-
     }
   }
 }
@@ -200,13 +192,24 @@ header {
   font-size: 18px;
 
   .form-group {
-    margin-bottom: 15px;
-
     .flex();
     .flex-justify-content(space-between);
+    .flex-center();
+    &.date {
+      position: relative;
+      margin-bottom: 15px;
+      color: #f5e048;
+      input {
+        cursor: pointer;
+        outline: none;
+        box-shadow: none;
+        border-color: rgba(221, 221, 221, 0.1);
+      }
+    }
   }
 
   label {
+    margin: 0;
     color: #f5e048;
   }
 
@@ -215,9 +218,9 @@ header {
     border: none;
     color: #fff;
     font-family: Gotham-Book;
-    font-size: 14px;
+    font-size: 18px;
     background: none;
-    border-bottom: 1px solid rgba(221,221,221,.1);
+    border-bottom: 1px solid rgba(221, 221, 221, .1);
     border-radius: 0;
     outline: none;
   }
@@ -236,6 +239,9 @@ header {
     background-color: #f6e048;
     cursor: pointer;
     outline: 0;
+    &:hover {
+      background: #fff;
+    }
   }
 }
 
@@ -243,6 +249,18 @@ header {
   width: 700px;
   margin: 40px auto 0;
 }
+
+//overriding datetimepicker style
+.timepicker-hour, .timepicker-minute, .timepicker-second {
+  width: 85px;
+}
+.bootstrap-datetimepicker-widget.dropdown-menu {
+  width: 220px;
+  background: #2e1f4a;
+  border: 1px solid #fff;
+}
+
+//font-face and mixins
 
 @font-face {
   font-family: 'Gotham-Bold';
@@ -302,6 +320,11 @@ header {
 .flex-center() {
   -webkit-align-items: center;
   align-items: center;
+}
+
+.flex-align(@property) {
+  -webkit-align-items: @property;
+  align-items: @property;
 }
 
 .flex-wrap(@property) {

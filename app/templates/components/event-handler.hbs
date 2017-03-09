@@ -8,11 +8,6 @@
 
 <form class="manage-event-wrapper" action="">
   <div class="form-group">
-    <label>Date and time:</label>
-    {{input name=date value=event.date }}
-  </div>
-
-  <div class="form-group">
     <label>Title:</label>
     {{input name=title value=event.title }}
   </div>
@@ -20,6 +15,11 @@
   <div class="form-group">
     <label>Description:</label>
     {{input name=description value=event.description }}
+  </div>
+
+  <div class="form-group date">
+    <label>Date and time:</label>
+    {{bs-datetimepicker date=event.date format='YYYY-MM-DD HH:mm' updateDate=(action (mut event.date))  noIcon=true}}
   </div>
 
   {{#if editMode}}

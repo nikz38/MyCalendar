@@ -27,6 +27,11 @@ export default Ember.Route.extend({
         });
       }
     }
-  }
+  },
 
+  actions: {
+    backToCalendar() {
+      this.transitionTo('calendar');
+    }
+  }
 });

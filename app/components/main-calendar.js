@@ -5,6 +5,8 @@ export default Ember.Component.extend({
   selectedDate: moment(),
   counter: 0,
   events: [],
+  classNameBindings: "active-day",
+  activeDay: false,
 
   init() {
     this._super();
@@ -87,10 +89,15 @@ export default Ember.Component.extend({
     },
 
     setActiveEvents(day) {
-      if (day.selectedMonth) {
-        this.set('activeEvents', day.event);
-        this.sendAction('updateView');
+      for (let i = 0; i < this.days.length; i++) {
+        let day = this.days[i];
+        day.selectedDay = false;
       }
+      if (day.selectedMonth) {
+        day.selectedDay = true;
+        this.set('activeEvents', day.event);
+      }
+      this.rerender();
     }
   }
 

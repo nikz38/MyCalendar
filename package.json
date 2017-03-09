@@ -19,8 +19,10 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "bootstrap": "3.3.7",
     "broccoli-asset-rev": "^2.4.2",
     "ember-ajax": "0.7.1",
+    "ember-bootstrap-datetimepicker": "1.1.0",
     "ember-cli": "2.5.1",
     "ember-cli-app-version": "^1.0.0",
     "ember-cli-babel": "^5.1.6",
@@ -31,6 +33,7 @@
     "ember-cli-jshint": "^1.0.0",
     "ember-cli-less": "^1.5.3",
     "ember-cli-mirage": "0.3.0-beta.5",
+    "ember-cli-moment-shim": "3.0.1",
     "ember-cli-qunit": "^1.4.0",
     "ember-cli-release": "0.2.8",
     "ember-cli-sri": "^2.1.0",
@@ -40,7 +43,11 @@
     "ember-load-initializers": "^0.5.1",
     "ember-promise-helpers": "1.0.2",
     "ember-resolver": "^2.0.3",
-    "loader.js": "^4.0.1"
+    "eonasdan-bootstrap-datetimepicker": "4.17.47",
+    "jquery": "3.1.1",
+    "loader.js": "^4.0.1",
+    "moment": "2.17.1",
+    "moment-timezone": "0.4.1"
   },
   "dependencies": {}
 }

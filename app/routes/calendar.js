@@ -16,18 +16,11 @@ export default Ember.Route.extend({
         title: 'Event title 2',
         description: 'Event description 2'
       }, {
-        id: 3,
-        type: 'events',
-        date: '2017-03-08T00:00:00.000Z',
-        title: 'Event title 3',
-        description: 'Event description 3'
-
-      }, {
         id: 4,
         type: 'events',
-        date: '2017-03-08T00:00:00.000Z',
-        title: 'Event title 4',
-        description: 'Event description 4'
+        date: '2017-03-23T00:00:00.000Z',
+        title: 'Event title 3',
+        description: 'Event description 3'
       }]);
     }
 
