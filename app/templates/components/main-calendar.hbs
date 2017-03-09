@@ -16,7 +16,7 @@
           {{if day.selectedMonth '' 'inactive'}}
           {{if day.event.length 'active' ''}}"
           {{action 'setActiveEvents' day}}>
-          {{format-date day.date}}
+          {{format-day day.date}}
         </div>
       </div>
     {{/each}}

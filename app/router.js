@@ -7,7 +7,7 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('about');
-  this.route('calendar');
+  this.route('calendar', { path: '/' });
   this.route('event', { path: '/event/:id' });
 });
 

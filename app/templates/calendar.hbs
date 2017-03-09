@@ -2,13 +2,12 @@
 
 {{main-calendar events=model.events activeEvents=model.activeEvents}}
 
-<button {{action 'sessionChanged'}}>refresh</button>
-
 {{#if model.activeEvents}}
-<h3 class="heading">calendar entries for selected date:</h3>
+<h4 class="heading">Showing calendar entries for {{format-event-day model.activeEvents.0.date}}</h4>
 {{/if}}
+
 <div class="events-preview-wrapper">
   {{#each model.activeEvents as |eventUnit|}}
-    {{calendar-event deleteEvent='complete' event=eventUnit events=model.events activeEvents=model.activeEvents}}
+    {{calendar-event event=eventUnit events=model.events activeEvents=model.activeEvents}}
   {{/each}}
 </div>

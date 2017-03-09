@@ -9,34 +9,40 @@ body {
   background: #2e1f4a;
 }
 
-h1, h3 {
-  margin: 18px 0;
-}
 
 
-header {
-  background: #372754;
-}
-
-.heading {
+h1, h2, h3 {
   margin: 50px auto 0;
   text-align: center;
   text-transform: capitalize;
 }
 
-.subheading {
-
+h4 {
+  margin: 50px auto 0;
+  text-align: center;
 }
 
-nav {
-  a {
-    display: inline-block;
-    margin: 0 15px;
-    line-height: 50px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #fff;
+header {
+  background: #372754;
+  nav {
+    a {
+      display: inline-block;
+      margin: 0 15px;
+      line-height: 50px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #fff;
+      &.active {
+        color: #f5e048;
+      }
+    }
   }
+}
+
+
+
+.subheading {
+
 }
 
 //main-calendar component style
@@ -45,10 +51,10 @@ nav {
   width: 700px;
   margin: 40px auto 0;
   padding: 35px 20px;
-  background: -moz-linear-gradient(-45deg, rgba(255,255,190,0.19) 0%, rgba(56,35,87,1) 100%);
-  background: -webkit-linear-gradient(-45deg, rgba(255,255,190,0.19) 0%,rgba(56,35,87,1) 100%);
-  background: linear-gradient(135deg, rgba(255,255,190,0.19) 0%,rgba(56,35,87,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#30ffffbe', endColorstr='#382357',GradientType=1 );
+  background: -moz-linear-gradient(-45deg, rgba(255, 255, 190, 0.19) 0%, rgba(56, 35, 87, 1) 100%);
+  background: -webkit-linear-gradient(-45deg, rgba(255, 255, 190, 0.19) 0%, rgba(56, 35, 87, 1) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 190, 0.19) 0%, rgba(56, 35, 87, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#30ffffbe', endColorstr='#382357', GradientType=1);
 
   .calendar-navigation {
     font-size: 25px;
@@ -110,14 +116,14 @@ nav {
 
   .day {
     &.active {
-    width: 25px;
-    height: 25px;
-    margin: 0 auto;
-    line-height: 25px;
-    background: #fff;
-    border-radius: 50%;
-    color: #2e1f4a;
-    cursor: pointer;
+      width: 25px;
+      height: 25px;
+      margin: 0 auto;
+      line-height: 25px;
+      background: #fff;
+      border-radius: 50%;
+      color: #2e1f4a;
+      cursor: pointer;
     }
     &.inactive {
       opacity: 0.3;
@@ -131,7 +137,7 @@ nav {
   color: #b6adc7;
 
   .event-wrapper {
-    &>div {
+    & > div {
       margin-bottom: 5px;
     }
 
@@ -148,22 +154,95 @@ nav {
 
     }
   }
-
-
-
 }
 
 //calendar-event component style
 .event-wrapper {
   border-top: 1px solid #4e3e69;
   padding: 18px 50px;
-  background: -moz-linear-gradient(top,  rgba(78,62,105,0.35) 0%, rgba(78,62,105,0.35) 1%, rgba(51,33,80,1) 100%);
-  background: -webkit-linear-gradient(top,  rgba(78,62,105,0.35) 0%,rgba(78,62,105,0.35) 1%,rgba(51,33,80,1) 100%);
-  background: linear-gradient(to bottom,  rgba(78,62,105,0.35) 0%,rgba(78,62,105,0.35) 1%,rgba(51,33,80,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#594e3e69', endColorstr='#332150',GradientType=0 );
+  background: -moz-linear-gradient(top, rgba(78, 62, 105, 0.35) 0%, rgba(78, 62, 105, 0.35) 1%, rgba(51, 33, 80, 1) 100%);
+  background: -webkit-linear-gradient(top, rgba(78, 62, 105, 0.35) 0%, rgba(78, 62, 105, 0.35) 1%, rgba(51, 33, 80, 1) 100%);
+  background: linear-gradient(to bottom, rgba(78, 62, 105, 0.35) 0%, rgba(78, 62, 105, 0.35) 1%, rgba(51, 33, 80, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#594e3e69', endColorstr='#332150', GradientType=0);
 
+  .action-buttons {
+    text-align: right;
+    & > div {
+      display: inline-block;
+      padding: 2px 15px;
+      border: 1px solid #f5e048;
+      border-radius: 15px;
+      color: #f5e048;
+      cursor: pointer;
+      &:hover {
+        background: #fff;
+        border: 1px solid #fff;
+        color: #2e1f4a;
+        transition: all 0.20s;
+        a {
+          color: #2e1f4a;
+        }
+      }
+    }
+    div:first-child {
+      margin-right: 15px;
+    }
+    a {
+      color: #f5e048;
+      text-decoration: none;
+    }
+  }
 }
 
+.manage-event-wrapper {
+  width: 650px;
+  margin: 40px auto 0;
+  font-size: 18px;
+
+  .form-group {
+    margin-bottom: 15px;
+
+    .flex();
+    .flex-justify-content(space-between);
+  }
+
+  label {
+    color: #f5e048;
+  }
+
+  input {
+    width: 500px;
+    border: none;
+    color: #fff;
+    font-family: Gotham-Book;
+    font-size: 14px;
+    background: none;
+    border-bottom: 1px solid rgba(221,221,221,.1);
+    border-radius: 0;
+    outline: none;
+  }
+
+  button.save,
+  button.edit {
+    float: right;
+    padding: 7px 20px;
+    border: none;
+    border-radius: 25px;
+    font-family: Gotham-Bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #372754;
+    background-color: #f6e048;
+    cursor: pointer;
+    outline: 0;
+  }
+}
+
+.about-description {
+  width: 700px;
+  margin: 40px auto 0;
+}
 
 @font-face {
   font-family: 'Gotham-Bold';

@@ -10,7 +10,6 @@ export default Ember.Component.extend({
     this._super();
     this.events = this.get('events');
     this.activeEvents = this.get('activeEvents');
-    console.log(this.activeEvents)
     this.createCalendarMonth();
     this.loadEvents();
   },
@@ -48,7 +47,6 @@ export default Ember.Component.extend({
     }
 
     this.set('days', days);
-    //  console.log(days);
   },
 
   loadEvents() {
@@ -61,7 +59,6 @@ export default Ember.Component.extend({
   addEventsToCalendar() {
     for (let i = 0; i < this.days.length; i++) {
       let day = this.days[i];
-      // console.log(day);
       for (let j = 0; j < this.events.length; j++) {
         let event = this.events[j];
         if (day.date.format('YYYY-MM-DD') == moment(event.date).format('YYYY-MM-DD')) {
@@ -78,7 +75,7 @@ export default Ember.Component.extend({
       this.set('selectedDate', moment().add(this.counter, 'month'));
       this.createCalendarMonth();
       this.addEventsToCalendar();
-
+      this.set('activeEvents', []);
     },
 
     calendarRight() {
@@ -86,6 +83,7 @@ export default Ember.Component.extend({
       this.set('selectedDate', moment().add(this.counter, 'month'));
       this.createCalendarMonth();
       this.addEventsToCalendar();
+      this.set('activeEvents', []);
     },
 
     setActiveEvents(day) {

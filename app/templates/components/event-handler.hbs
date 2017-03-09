@@ -1,16 +1,33 @@
-<div>Change date and time</div>
-{{input value=event.date }}
-
-<div>Change title</div>
-{{input value=event.title }}
-
-<div>Change description</div>
-{{input value=event.description }}
-
 {{#if editMode}}
-  <button {{ action 'save' }}>save</button>
+  <h2>Edit event</h2>
 {{/if}}
 
 {{#if addMode}}
-  <button {{ action 'add' }}>add</button>
+  <h2>Add event</h2>
 {{/if}}
+
+<form class="manage-event-wrapper" action="">
+  <div class="form-group">
+    <label>Date and time:</label>
+    {{input name=date value=event.date }}
+  </div>
+
+  <div class="form-group">
+    <label>Title:</label>
+    {{input name=title value=event.title }}
+  </div>
+
+  <div class="form-group">
+    <label>Description:</label>
+    {{input name=description value=event.description }}
+  </div>
+
+  {{#if editMode}}
+    <button class="save" {{ action 'save' }}>save</button>
+  {{/if}}
+
+  {{#if addMode}}
+    <button class="edit" {{ action 'add' }}>add</button>
+  {{/if}}
+</form>
+

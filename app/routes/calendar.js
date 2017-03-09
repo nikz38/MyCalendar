@@ -37,14 +37,5 @@ export default Ember.Route.extend({
       events: events,
       activeEvents: []
     });
-
-    //   return this.get('store').findAll('event');
   },
-
-  actions: {
-    complete: function() {
-      console.log('dadsa');
-    }
-  }
-
 });
