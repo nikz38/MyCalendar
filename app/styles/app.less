@@ -121,13 +121,14 @@ header {
       border-radius: 50%;
       color: #2e1f4a;
       cursor: pointer;
+      &.active-day {
+        background: #f5e048;
+      }
     }
     &.inactive {
       opacity: 0.3;
     }
-    &.active-day {
-      background: #f5e048;
-    }
+
   }
 }
 
@@ -189,6 +190,7 @@ header {
 .manage-event-wrapper {
   width: 650px;
   margin: 40px auto 0;
+  padding-bottom: 280px;
   font-size: 18px;
 
   .form-group {

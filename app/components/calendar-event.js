@@ -11,7 +11,10 @@ export default Ember.Component.extend({
   actions: {
     deleteEvent(event) {
       this.activeEvents.removeObject(event);
+      this.set('activeEvents', this.activeEvents);
+
       this.events.removeObject(event);
+      this.set('events', this.events);
       localStorage.events = JSON.stringify(this.events);
     }
   }
