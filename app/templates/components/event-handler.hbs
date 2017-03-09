@@ -1,0 +1,16 @@
+<div>Change date and time</div>
+{{input value=event.date }}
+
+<div>Change title</div>
+{{input value=event.title }}
+
+<div>Change description</div>
+{{input value=event.description }}
+
+{{#if editMode}}
+  <button {{ action 'save' }}>save</button>
+{{/if}}
+
+{{#if addMode}}
+  <button {{ action 'add' }}>add</button>
+{{/if}}

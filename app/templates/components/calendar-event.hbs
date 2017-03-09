@@ -3,5 +3,5 @@
     <div class="detail owner">Title: {{event.title}}</div>
     <div class="detail type">Description: {{event.description}}</div>
   <div {{action 'deleteEvent' event}}>delete</div>
-  <div>{{#link-to 'calendar.edit-event'}}edit{{/link-to}}</div>
+  <div>{{#link-to 'event' event.id}}edit{{/link-to}}</div>
 </div>

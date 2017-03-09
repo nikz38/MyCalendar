@@ -7,10 +7,8 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('about');
-  this.route('calendar', function() {
-    this.route('edit-event');
-  });
-  this.route('create-event');
+  this.route('calendar');
+  this.route('event', { path: '/event/:id' });
 });
 
 export default Router;
